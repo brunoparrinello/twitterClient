@@ -9,6 +9,7 @@
 #import "TimelineVC.h"
 #import "TweetCell.h"
 #import "ComposeTweetViewController.h"
+#import "StringFormatter.h"
 
 @interface TimelineVC ()
 
@@ -114,6 +115,7 @@
     cell.tweetUsernameLabel.text = tweet.username;
     cell.tweetContentTextView.text = tweet.text;
     cell.tweetTimestampLabel.text = tweet.tweetTimestamp;
+    cell.tweetUserHandle.text = [StringFormatter twitterHandleFormatter:tweet.userHandle];
     
     NSData * imageData = [NSData dataWithContentsOfURL:tweet.userImageURL];
     [cell.tweetUserProfileImage setImage:[UIImage imageWithData:imageData]];

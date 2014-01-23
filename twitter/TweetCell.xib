@@ -33,24 +33,31 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wss-I1-sJt">
-                        <rect key="frame" x="60" y="0.0" width="117" height="27"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wss-I1-sJt">
+                        <rect key="frame" x="60" y="0.0" width="116" height="27"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timestamp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIu-OV-w1s">
-                        <rect key="frame" x="192" y="3" width="170" height="21"/>
+                        <rect key="frame" x="272" y="3" width="90" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@brunoinnerg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r46-lj-JT2">
+                        <rect key="frame" x="184" y="3" width="80" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="mbS-XH-CEj" firstAttribute="top" secondItem="3ht-eV-fWe" secondAttribute="top" constant="3" id="Apd-GC-tiZ"/>
                     <constraint firstItem="REE-cd-KWA" firstAttribute="top" secondItem="3ht-eV-fWe" secondAttribute="top" constant="20" id="MXW-NU-z8U"/>
                     <constraint firstItem="mbS-XH-CEj" firstAttribute="leading" secondItem="3ht-eV-fWe" secondAttribute="leading" constant="5" id="N0r-4K-Fpf"/>
                     <constraint firstItem="REE-cd-KWA" firstAttribute="leading" secondItem="mbS-XH-CEj" secondAttribute="trailing" constant="8" id="VLt-6L-20k"/>
-                    <constraint firstItem="mbS-XH-CEj" firstAttribute="top" secondItem="3ht-eV-fWe" secondAttribute="top" constant="3" id="bBq-Vl-0zz"/>
                     <constraint firstAttribute="trailing" secondItem="REE-cd-KWA" secondAttribute="trailing" constant="20" id="uua-4b-hwV"/>
                 </constraints>
             </tableViewCellContentView>
@@ -58,6 +65,7 @@
             <connections>
                 <outlet property="tweetContentTextView" destination="REE-cd-KWA" id="58P-og-NfS"/>
                 <outlet property="tweetTimestampLabel" destination="tIu-OV-w1s" id="biK-v5-HFd"/>
+                <outlet property="tweetUserHandle" destination="r46-lj-JT2" id="lho-b6-lId"/>
                 <outlet property="tweetUserProfileImage" destination="mbS-XH-CEj" id="ciD-Qo-Kns"/>
                 <outlet property="tweetUsernameLabel" destination="Wss-I1-sJt" id="HSw-Aw-YLQ"/>
             </connections>

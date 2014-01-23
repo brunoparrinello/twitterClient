@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *composeTweetTextView;
 @property (weak, nonatomic) IBOutlet UILabel *composeTweetUsernameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *composeTweetUserImage;
+@property (weak, nonatomic) IBOutlet UILabel *composeTweetUserHandle;
+@property (weak, nonatomic) IBOutlet UILabel *charCounterLabel;
 
 - (IBAction)onCancelCompose:(id)sender;
 

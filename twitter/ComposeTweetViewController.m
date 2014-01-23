@@ -7,6 +7,7 @@
 //
 
 #import "ComposeTweetViewController.h"
+#import "StringFormatter.h"
 
 @interface ComposeTweetViewController ()
 
@@ -30,7 +31,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self.composeTweetTextView becomeFirstResponder];
-    //self.composeTweetUsernameLabel.text =
+
+    // Populate signed in user info
+    User *signedInUser = [User currentUser];
+    NSString *handle = [StringFormatter twitterHandleFormatter:signedInUser.currentUserHandle];
+    self.composeTweetUsernameLabel.text = signedInUser.currentUsername;
+    self.composeTweetUserHandle.text = handle;
+    
+    NSData * imageData = [NSData dataWithContentsOfURL:signedInUser.currentUserImageURL];
+    [self.composeTweetUserImage setImage:[UIImage imageWithData:imageData]];
 }
 
 - (IBAction)onCancelCompose:(id)sender {

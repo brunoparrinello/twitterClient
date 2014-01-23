@@ -20,4 +20,7 @@
 // Categories
 #import "NSDictionary+CPAdditions.h"
 
+// Formatters
+#import "StringFormatter.h"
+
 #endif

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A24A74018919EC60069A481 /* StringFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A24A73F18919EC60069A481 /* StringFormatter.m */; };
 		0AB642D21890C4ED0052C5DB /* ComposeTweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB642D01890C4ED0052C5DB /* ComposeTweetViewController.m */; };
 		0AB642D31890C4ED0052C5DB /* ComposeTweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB642D11890C4ED0052C5DB /* ComposeTweetViewController.xib */; };
 		42C55E07181209DE000F9FCF /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42CC89C017B0F03E00B6D34B /* TweetCell.xib */; };
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A24A73E18919EC60069A481 /* StringFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringFormatter.h; sourceTree = "<group>"; };
+		0A24A73F18919EC60069A481 /* StringFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringFormatter.m; sourceTree = "<group>"; };
 		0AB642CF1890C4ED0052C5DB /* ComposeTweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeTweetViewController.h; sourceTree = "<group>"; };
 		0AB642D01890C4ED0052C5DB /* ComposeTweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeTweetViewController.m; sourceTree = "<group>"; };
 		0AB642D11890C4ED0052C5DB /* ComposeTweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeTweetViewController.xib; sourceTree = "<group>"; };
@@ -112,6 +115,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A24A73D18919E9D0069A481 /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				0A24A73E18919EC60069A481 /* StringFormatter.h */,
+				0A24A73F18919EC60069A481 /* StringFormatter.m */,
+			);
+			name = Formatters;
+			sourceTree = "<group>";
+		};
 		42CC891F17AF4C6A00B6D34B = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +159,7 @@
 		42CC893117AF4C6A00B6D34B /* twitter */ = {
 			isa = PBXGroup;
 			children = (
+				0A24A73D18919E9D0069A481 /* Formatters */,
 				42CC895E17AF86D600B6D34B /* API */,
 				42CC896217B0BD9100B6D34B /* Models */,
 				42CC89BC17B0EFEE00B6D34B /* Views */,
@@ -392,6 +405,7 @@
 				42CC89AE17B0C7A600B6D34B /* User.m in Sources */,
 				42CC89B117B0C7B800B6D34B /* Tweet.m in Sources */,
 				42CC89B417B0D63C00B6D34B /* RestObject.m in Sources */,
+				0A24A74018919EC60069A481 /* StringFormatter.m in Sources */,
 				42CC895D17AF6FBB00B6D34B /* TimelineVC.m in Sources */,
 				0AB642D21890C4ED0052C5DB /* ComposeTweetViewController.m in Sources */,
 				42CC893C17AF4C6B00B6D34B /* AppDelegate.m in Sources */,

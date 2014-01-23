@@ -8,7 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeTweetViewController">
             <connections>
                 <outlet property="cancelComposeBarButton" destination="q4c-h9-iQD" id="07e-tF-tET"/>
+                <outlet property="charCounterLabel" destination="t5l-Aa-obZ" id="r4R-Jz-fQu"/>
                 <outlet property="composeTweetTextView" destination="Acg-0F-Qpt" id="V5E-vf-DFX"/>
+                <outlet property="composeTweetUserHandle" destination="UTe-H8-w9l" id="gUe-8C-7N4"/>
                 <outlet property="composeTweetUserImage" destination="23A-bT-xqj" id="cL6-X8-o7u"/>
                 <outlet property="composeTweetUsernameLabel" destination="zpP-0k-QKC" id="G3g-6G-TaR"/>
                 <outlet property="tweetBarButton" destination="q4c-h9-iQD" id="87P-Al-evx"/>
@@ -45,9 +47,9 @@
                     </connections>
                 </textView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User display name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpP-0k-QKC">
-                    <rect key="frame" x="60" y="73" width="183" height="26"/>
+                    <rect key="frame" x="60" y="73" width="240" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -59,6 +61,18 @@
                         <constraint firstAttribute="width" constant="45" id="xyA-g0-Ora"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Twitter handle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTe-H8-w9l">
+                    <rect key="frame" x="60" y="97" width="171" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="140" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5l-Aa-obZ">
+                    <rect key="frame" x="207" y="29" width="29" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

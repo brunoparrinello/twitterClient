@@ -15,6 +15,10 @@
 }
 
 - (NSString *)username {
+    return [self.data valueOrNilForKeyPath:@"user.name"];
+}
+
+- (NSString *)userHandle {
     return [self.data valueOrNilForKeyPath:@"user.screen_name"];
 }
 
