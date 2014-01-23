@@ -10,6 +10,8 @@
 
 @interface ComposeTweetViewController ()
 
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView;
+
 @end
 
 @implementation ComposeTweetViewController
@@ -27,12 +29,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.composeTweetTextView becomeFirstResponder];
+    //self.composeTweetUsernameLabel.text =
 }
 
 - (IBAction)onCancelCompose:(id)sender {
-    NSLog(@"Cancel button has been clicked");
-    // TODO: Make this work to dismiss the modal
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
+    
+    [self.view endEditing:YES];
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning

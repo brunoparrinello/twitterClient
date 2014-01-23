@@ -8,6 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeTweetViewController">
             <connections>
                 <outlet property="cancelComposeBarButton" destination="q4c-h9-iQD" id="07e-tF-tET"/>
+                <outlet property="composeTweetTextView" destination="Acg-0F-Qpt" id="V5E-vf-DFX"/>
+                <outlet property="composeTweetUserImage" destination="23A-bT-xqj" id="cL6-X8-o7u"/>
+                <outlet property="composeTweetUsernameLabel" destination="zpP-0k-QKC" id="G3g-6G-TaR"/>
                 <outlet property="tweetBarButton" destination="q4c-h9-iQD" id="87P-Al-evx"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -21,18 +24,47 @@
                     <rect key="frame" x="0.0" y="18" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
-                        <navigationItem title="Compose Tweet" id="q4c-h9-iQD">
+                        <navigationItem id="q4c-h9-iQD" colorLabel="IBBuiltInLabel-Gray">
                             <barButtonItem key="leftBarButtonItem" title="Cancel" id="Xli-iN-dN1">
                                 <connections>
                                     <action selector="onCancelCompose:" destination="-1" id="QAa-ah-oQN"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" title="Tweet!" id="VPk-uC-mGu"/>
+                            <barButtonItem key="rightBarButtonItem" title="Tweet" id="VPk-uC-mGu"/>
                         </navigationItem>
                     </items>
                 </navigationBar>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="What's happening?" translatesAutoresizingMaskIntoConstraints="NO" id="Acg-0F-Qpt">
+                    <rect key="frame" x="0.0" y="120" width="320" height="130"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <connections>
+                        <outlet property="delegate" destination="1" id="kna-6M-H7R"/>
+                    </connections>
+                </textView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User display name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpP-0k-QKC">
+                    <rect key="frame" x="60" y="73" width="183" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="23A-bT-xqj">
+                    <rect key="frame" x="7" y="73" width="45" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="wQW-QG-4UT"/>
+                        <constraint firstAttribute="width" constant="45" id="xyA-g0-Ora"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="23A-bT-xqj" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="7" id="GVv-2R-V3J"/>
+                <constraint firstItem="23A-bT-xqj" firstAttribute="top" secondItem="1" secondAttribute="top" constant="73" id="HAm-M2-sTW"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

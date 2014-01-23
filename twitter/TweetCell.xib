@@ -54,6 +54,7 @@
                     <constraint firstAttribute="trailing" secondItem="REE-cd-KWA" secondAttribute="trailing" constant="20" id="uua-4b-hwV"/>
                 </constraints>
             </tableViewCellContentView>
+            <gestureRecognizers/>
             <connections>
                 <outlet property="tweetContentTextView" destination="REE-cd-KWA" id="58P-og-NfS"/>
                 <outlet property="tweetTimestampLabel" destination="tIu-OV-w1s" id="biK-v5-HFd"/>

@@ -38,7 +38,14 @@
     NSLog(@"View will appear");
     [super viewWillAppear:animated];
     // set navigation bar's tint color when being shown
-    self.navigationController.navigationBar.barTintColor = [UIColor blueColor];
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        NSLog(@"Load resources for iOS 6.1 or earlier");
+        self.navigationController.navigationBar.tintColor = [UIColor blueColor];
+    } else {
+        NSLog(@"Load resources for iOS 7 or later");
+        // Setting to twitter-like color
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.25 green:0.6 blue:1.0 alpha:1.0];
+    }
 }
 
 - (void)viewDidLoad
@@ -46,17 +53,24 @@
     NSLog(@"View did load");
     [super viewDidLoad];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onSignOutButton)];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStylePlain target:self action:@selector(onComposeButton)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
-    
     // Register the custom tweet cell
     UINib *tweetCellNib = [UINib nibWithNibName:@"TweetCell" bundle:nil];
     [self.tableView registerNib:tweetCellNib forCellReuseIdentifier:@"TweetCell"];
-
-
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onSignOutButton)];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStylePlain target:self action:@selector(onComposeButton)];
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        NSLog(@"Load resources for iOS 6.1 or earlier");
+        self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
+    } else {
+        NSLog(@"Load resources for iOS 7 or later");
+        self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+    }
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -176,9 +190,7 @@
 }
 
 - (void)onComposeButton {
-    NSLog(@"Compose button has been clicked");
     [self.navigationController presentViewController:[[ComposeTweetViewController alloc] init] animated:YES completion:nil];
-    //[self.navigationController pushViewController:[[ComposeTweetViewController alloc] init] animated:YES];
 }
 
 - (void)reload {
