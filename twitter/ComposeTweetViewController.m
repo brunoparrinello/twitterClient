@@ -13,6 +13,12 @@
 
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView;
 
+- (IBAction)onCancelCompose:(id)sender;
+- (IBAction)onTweet:(id)sender;
+//- (void)onCancelCompose;
+//- (void)onTweet;
+
+
 @end
 
 @implementation ComposeTweetViewController
@@ -22,6 +28,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title = @"Compose Tweet";
     }
     return self;
 }
@@ -29,6 +36,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(onCancelCompose:)];
+    //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(onCancelCompose:)];
+    
+    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Tweet!" style:UIBarButtonItemStylePlain target:self action:@selector(onTweet:)];
+    
     // Do any additional setup after loading the view from its nib.
     [self.composeTweetTextView becomeFirstResponder];
 
@@ -42,8 +55,26 @@
     [self.composeTweetUserImage setImage:[UIImage imageWithData:imageData]];
 }
 
+//- (IBAction)onCancelCompose:(id)sender {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
+
 - (IBAction)onCancelCompose:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)onTweet:(id)sender {
+    
+    NSLog(@"Tweet Button has been clicked");
+    //TODO: Tweet
+    [[TwitterClient instance] updateStatus:self.composeTweetTextView.text success:^(AFHTTPRequestOperation *operation, id response) {
+        NSLog(@"%@", response);
+        //self.tweets = [Tweet tweetsWithArray:response];
+        //[self.tableView reloadData];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // Do nothing
+    }];
 }
 
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView {

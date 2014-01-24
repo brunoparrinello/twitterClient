@@ -7,13 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeTweetViewController">
             <connections>
-                <outlet property="cancelComposeBarButton" destination="q4c-h9-iQD" id="07e-tF-tET"/>
-                <outlet property="charCounterLabel" destination="t5l-Aa-obZ" id="r4R-Jz-fQu"/>
+                <outlet property="cancelBarButton" destination="bRp-2Q-fcY" id="4Gy-5O-oe7"/>
                 <outlet property="composeTweetTextView" destination="Acg-0F-Qpt" id="V5E-vf-DFX"/>
                 <outlet property="composeTweetUserHandle" destination="UTe-H8-w9l" id="gUe-8C-7N4"/>
                 <outlet property="composeTweetUserImage" destination="23A-bT-xqj" id="cL6-X8-o7u"/>
                 <outlet property="composeTweetUsernameLabel" destination="zpP-0k-QKC" id="G3g-6G-TaR"/>
-                <outlet property="tweetBarButton" destination="q4c-h9-iQD" id="87P-Al-evx"/>
+                <outlet property="tweetBarButton" destination="jAW-So-c0p" id="VDs-wq-xht"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -22,20 +21,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ulR-u7-wUp">
-                    <rect key="frame" x="0.0" y="18" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <items>
-                        <navigationItem id="q4c-h9-iQD" colorLabel="IBBuiltInLabel-Gray">
-                            <barButtonItem key="leftBarButtonItem" title="Cancel" id="Xli-iN-dN1">
-                                <connections>
-                                    <action selector="onCancelCompose:" destination="-1" id="QAa-ah-oQN"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" title="Tweet" id="VPk-uC-mGu"/>
-                        </navigationItem>
-                    </items>
-                </navigationBar>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="What's happening?" translatesAutoresizingMaskIntoConstraints="NO" id="Acg-0F-Qpt">
                     <rect key="frame" x="0.0" y="120" width="320" height="130"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -68,12 +53,24 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="140" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5l-Aa-obZ">
-                    <rect key="frame" x="207" y="29" width="29" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E7t-Ko-wP0">
+                    <rect key="frame" x="0.0" y="16" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <items>
+                        <navigationItem title="Title" id="qRM-kU-1DC">
+                            <barButtonItem key="leftBarButtonItem" title="Cancel" id="bRp-2Q-fcY">
+                                <connections>
+                                    <action selector="onCancelCompose:" destination="-1" id="U5J-t5-0gV"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" title="Tweet!" id="jAW-So-c0p">
+                                <connections>
+                                    <action selector="onTweet:" destination="-1" id="yLF-gm-IyB"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
