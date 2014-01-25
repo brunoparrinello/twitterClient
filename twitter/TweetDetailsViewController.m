@@ -12,6 +12,7 @@
 @interface TweetDetailsViewController ()
 
 - (IBAction)onRetweet:(id)sender;
+- (IBAction)onFavorite:(id)sender;
 
 @end
 
@@ -52,10 +53,23 @@
     [[TwitterClient instance] retweet:self.selectedTweet.tweetId success:^(AFHTTPRequestOperation *operation, id response) {
         NSLog(@"%@", response);
         //TODO: Add Action to indicate that the retweet action worked.
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // Do nothing
         NSLog(@"Retweet has failed: %d - %@", error.code, error.description);
     }];
+}
+
+- (IBAction)onFavorite:(id)sender {
+    NSLog(@"Favorite Button has been clicked");
+    [[TwitterClient instance] favoriteTweet:self.selectedTweet.tweetId success:^(AFHTTPRequestOperation *operation, id response) {
+        NSLog(@"%@", response);
+        //TODO: Add Action to indicate that the favorite action worked.
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // Do nothing
+        NSLog(@"Favorite has failed: %d - %@", error.code, error.description);
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning

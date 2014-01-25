@@ -55,10 +55,6 @@
     [self.composeTweetUserImage setImage:[UIImage imageWithData:imageData]];
 }
 
-//- (IBAction)onCancelCompose:(id)sender {
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
-
 - (IBAction)onCancelCompose:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
