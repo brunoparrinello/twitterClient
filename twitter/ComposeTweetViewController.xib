@@ -7,12 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeTweetViewController">
             <connections>
-                <outlet property="cancelBarButton" destination="bRp-2Q-fcY" id="4Gy-5O-oe7"/>
                 <outlet property="composeTweetTextView" destination="Acg-0F-Qpt" id="V5E-vf-DFX"/>
                 <outlet property="composeTweetUserHandle" destination="UTe-H8-w9l" id="gUe-8C-7N4"/>
                 <outlet property="composeTweetUserImage" destination="23A-bT-xqj" id="cL6-X8-o7u"/>
                 <outlet property="composeTweetUsernameLabel" destination="zpP-0k-QKC" id="G3g-6G-TaR"/>
-                <outlet property="tweetBarButton" destination="jAW-So-c0p" id="VDs-wq-xht"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -21,61 +19,62 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="What's happening?" translatesAutoresizingMaskIntoConstraints="NO" id="Acg-0F-Qpt">
-                    <rect key="frame" x="0.0" y="120" width="320" height="130"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Acg-0F-Qpt">
+                    <rect key="frame" x="3" y="120" width="314" height="107"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="107" id="lbI-Ro-gpe"/>
+                    </constraints>
+                    <string key="text">12345678901234123456789012341234567890123412345678901234123456789012341234567890123412345678901234123456789012341234567890123412345678901234</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <connections>
                         <outlet property="delegate" destination="1" id="kna-6M-H7R"/>
                     </connections>
                 </textView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User display name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpP-0k-QKC">
-                    <rect key="frame" x="60" y="73" width="240" height="26"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User display name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpP-0k-QKC">
+                    <rect key="frame" x="62" y="73" width="255" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="TaL-WZ-Fbf"/>
+                        <constraint firstAttribute="width" constant="255" id="uAb-f7-3V1"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="23A-bT-xqj">
-                    <rect key="frame" x="7" y="73" width="45" height="45"/>
+                    <rect key="frame" x="9" y="73" width="45" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="45" id="wQW-QG-4UT"/>
-                        <constraint firstAttribute="width" constant="45" id="xyA-g0-Ora"/>
+                        <constraint firstAttribute="width" constant="45" id="1KW-zr-Cdv"/>
+                        <constraint firstAttribute="height" constant="45" id="ski-Q5-0XU"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Twitter handle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTe-H8-w9l">
-                    <rect key="frame" x="60" y="91" width="171" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitter handle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTe-H8-w9l">
+                    <rect key="frame" x="62" y="97" width="255" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="vWg-Os-92u"/>
+                        <constraint firstAttribute="width" constant="255" id="w7G-tZ-fSB"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E7t-Ko-wP0">
-                    <rect key="frame" x="0.0" y="16" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <items>
-                        <navigationItem title="Title" id="qRM-kU-1DC">
-                            <barButtonItem key="leftBarButtonItem" title="Cancel" id="bRp-2Q-fcY">
-                                <connections>
-                                    <action selector="onCancelCompose:" destination="-1" id="U5J-t5-0gV"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" title="Tweet!" id="jAW-So-c0p">
-                                <connections>
-                                    <action selector="onTweet:" destination="-1" id="yLF-gm-IyB"/>
-                                </connections>
-                            </barButtonItem>
-                        </navigationItem>
-                    </items>
-                </navigationBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="23A-bT-xqj" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="7" id="GVv-2R-V3J"/>
-                <constraint firstItem="23A-bT-xqj" firstAttribute="top" secondItem="1" secondAttribute="top" constant="73" id="HAm-M2-sTW"/>
+                <constraint firstItem="23A-bT-xqj" firstAttribute="top" secondItem="1" secondAttribute="top" constant="73" id="3bh-wq-iot"/>
+                <constraint firstItem="Acg-0F-Qpt" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="3" id="EEf-20-Il1"/>
+                <constraint firstItem="23A-bT-xqj" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="9" id="HqN-hU-gAF"/>
+                <constraint firstItem="UTe-H8-w9l" firstAttribute="leading" secondItem="23A-bT-xqj" secondAttribute="trailing" constant="8" id="Nyw-WY-81h"/>
+                <constraint firstItem="zpP-0k-QKC" firstAttribute="top" secondItem="1" secondAttribute="top" constant="73" id="cHI-UJ-inA"/>
+                <constraint firstAttribute="trailing" secondItem="Acg-0F-Qpt" secondAttribute="trailing" constant="3" id="itS-2e-V9b"/>
+                <constraint firstItem="zpP-0k-QKC" firstAttribute="leading" secondItem="23A-bT-xqj" secondAttribute="trailing" constant="8" id="nYZ-jr-anx"/>
+                <constraint firstItem="UTe-H8-w9l" firstAttribute="top" secondItem="1" secondAttribute="top" constant="97" id="ob3-e4-oCn"/>
+                <constraint firstItem="Acg-0F-Qpt" firstAttribute="top" secondItem="23A-bT-xqj" secondAttribute="bottom" constant="2" id="tMn-nF-JsY"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

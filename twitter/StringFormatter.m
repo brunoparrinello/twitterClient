@@ -14,4 +14,11 @@
     return [@"@" stringByAppendingString:twitterHandle];
 }
 
++ (NSString *) formatRetweets:(NSString *)retweetCount WithFavorites:(NSString *)favoriteCount {
+    
+    NSString *formattedRetweets = retweetCount.intValue == 0 ? @"NOT RETWEETED " : [retweetCount stringByAppendingString:@" RETWEETS "];
+    NSString *formattedFaves =  favoriteCount.intValue == 0 ? @"NOT FAVORITED" : [favoriteCount stringByAppendingString:@" FAVORITES"];
+    return [formattedRetweets stringByAppendingString:formattedFaves];
+}
+
 @end

@@ -8,6 +8,8 @@
 
 #import "TweetDetailsViewController.h"
 #import "Tweet.h"
+#import "UIImageView+AFNetworking.h"
+#import "StringFormatter.h"
 
 @interface TweetDetailsViewController ()
 
@@ -44,8 +46,9 @@
     self.selectedTweetUserHandleLabel.text = [StringFormatter twitterHandleFormatter:self.selectedTweet.userHandle];
     self.selectedTweetTimestampLabel.text = self.selectedTweet.tweetTimestamp;
     self.selectedTweetTextView.text = self.selectedTweet.text;
-    //TODO: Add image info
-    
+    [self.selectedTweetUserImage setImageWithURL:self.selectedTweet.userImageURL];
+    //self.selectedTweetNumberOfRetweetsLabel.text = self.selectedTweet.numberOfRetweets;
+    self.selectedTweetNumberOfRetweetsLabel.text = [StringFormatter formatRetweets:self.selectedTweet.numberOfRetweets WithFavorites:self.selectedTweet.numberOfFavorites];
 }
 
 - (IBAction)onRetweet:(id)sender {
@@ -55,7 +58,6 @@
         //TODO: Add Action to indicate that the retweet action worked.
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        // Do nothing
         NSLog(@"Retweet has failed: %d - %@", error.code, error.description);
     }];
 }

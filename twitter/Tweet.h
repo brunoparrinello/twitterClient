@@ -16,6 +16,8 @@
 @property (nonatomic, strong, readonly) NSString *userHandle;
 @property (nonatomic, strong, readonly) NSURL *userImageURL;
 @property (nonatomic, strong, readonly) NSString *tweetTimestamp;
+@property (nonatomic, strong, readonly) NSString *numberOfRetweets;
+@property (nonatomic, strong, readonly) NSString *numberOfFavorites;
 
 + (NSMutableArray *)tweetsWithArray:(NSArray *)array;
 

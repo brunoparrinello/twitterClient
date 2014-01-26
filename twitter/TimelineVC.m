@@ -11,10 +11,12 @@
 #import "ComposeTweetViewController.h"
 #import "StringFormatter.h"
 #import "TweetDetailsViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface TimelineVC ()
 
 @property (nonatomic, strong) NSMutableArray *tweets;
+@property (nonatomic, strong) Tweet *tweetedStatus;
 
 - (void)onSignOutButton;
 - (void)onComposeButton;
@@ -118,8 +120,10 @@
     cell.tweetTimestampLabel.text = tweet.tweetTimestamp;
     cell.tweetUserHandle.text = [StringFormatter twitterHandleFormatter:tweet.userHandle];
     
-    NSData * imageData = [NSData dataWithContentsOfURL:tweet.userImageURL];
-    [cell.tweetUserProfileImage setImage:[UIImage imageWithData:imageData]];
+    [cell.tweetUserProfileImage setImageWithURL:tweet.userImageURL];
+    
+    //NSData * imageData = [NSData dataWithContentsOfURL:tweet.userImageURL];
+    //[cell.tweetUserProfileImage setImage:[UIImage imageWithData:imageData]];
     
     return cell;
 }
@@ -198,7 +202,10 @@
 }
 
 - (void)onComposeButton {
-    [self.navigationController presentViewController:[[ComposeTweetViewController alloc] init] animated:YES completion:nil];
+    ComposeTweetViewController *vc = [[ComposeTweetViewController alloc] init];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    [self.navigationController presentViewController:nvc animated:YES completion:nil];
 }
 
 - (void)reload {

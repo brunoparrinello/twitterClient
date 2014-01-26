@@ -11,5 +11,6 @@
 @interface StringFormatter : NSObject
 
 + (NSString *) twitterHandleFormatter:(NSString *)twitterHandle;
++ (NSString *) formatRetweets:(NSString *)retweetCount WithFavorites:(NSString *)favoriteCount;
 
 @end
