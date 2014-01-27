@@ -11,6 +11,8 @@
 #import "UIImageView+AFNetworking.h"
 #import "TimelineVC.h"
 
+#define TWITTER_STATUS_MAX_LENGTH 140
+
 @interface ComposeTweetViewController ()
 
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView;
@@ -45,7 +47,7 @@
     } else {
         NSLog(@"Load resources for iOS 7 or later");
         // Setting to twitter-like color
-        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.25 green:0.6 blue:1.0 alpha:1.0];
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.33 green:0.67 blue:0.93 alpha:1.0];
         self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
         self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     }
@@ -65,8 +67,26 @@
     self.composeTweetUserHandle.text = handle;
     [self.composeTweetUserImage setImageWithURL:signedInUser.currentUserImageURL];
     if (self.replyingToTweet) {
-        self.composeTweetTextView.text = [StringFormatter twitterHandleFormatter:self.replyingToTweet.userHandle];
+        self.composeTweetTextView.text = [[StringFormatter twitterHandleFormatter:self.replyingToTweet.userHandle] stringByAppendingString:@" "];
+    } else {
+        self.composeTweetTextView.clearsOnInsertion = YES;
     }
+    self.charCounterLabel.text = [NSString stringWithFormat:@"%d", (TWITTER_STATUS_MAX_LENGTH - self.composeTweetTextView.text.length)];
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    int remainingChars = (TWITTER_STATUS_MAX_LENGTH - self.composeTweetTextView.text.length);
+    self.charCounterLabel.text = [NSString stringWithFormat:@"%d", remainingChars];
+    if (remainingChars <= 10) {
+        self.charCounterLabel.textColor = [UIColor redColor];
+    } else {
+        self.charCounterLabel.textColor = [UIColor blackColor];
+    }
+//    if (remainingChars < 0) {
+//        [self.tweetBarButton setEnabled:NO];
+//    } else if (remainingChars >= 0) {
+//        [self.tweetBarButton setEnabled:YES];
+//    }
 }
 
 - (void)onCancelCompose {

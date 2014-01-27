@@ -30,7 +30,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.title = @"Twitter";
+        self.title = @"Home";
         
         [self reload];
     }
@@ -43,12 +43,16 @@
     [super viewWillAppear:animated];
     // set navigation bar's tint color when being shown
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-        NSLog(@"Load resources for iOS 6.1 or earlier");
+        // Load resources for iOS 6.1 or earlier
         self.navigationController.navigationBar.tintColor = [UIColor blueColor];
+        self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
     } else {
-        NSLog(@"Load resources for iOS 7 or later");
+        // Load resources for iOS 7 or later
         // Setting to twitter-like color
-        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.25 green:0.6 blue:1.0 alpha:1.0];
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.33 green:0.67 blue:0.93 alpha:1.0];
+        self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     }
 }
 
@@ -64,16 +68,6 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onSignOutButton)];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStylePlain target:self action:@selector(onComposeButton)];
-    
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-        NSLog(@"Load resources for iOS 6.1 or earlier");
-        self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
-        self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
-    } else {
-        NSLog(@"Load resources for iOS 7 or later");
-        self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
-        self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
-    }
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -102,14 +96,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    
     // TweetCell Version
     static NSString *CellIdentifier = @"TweetCell";
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    //TweetCell *cell = [[TweetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     
     // Initial Version
     //UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
@@ -119,11 +108,8 @@
     cell.tweetContentTextView.text = tweet.text;
     cell.tweetTimestampLabel.text = tweet.tweetTimestamp;
     cell.tweetUserHandle.text = [StringFormatter twitterHandleFormatter:tweet.userHandle];
-    
     [cell.tweetUserProfileImage setImageWithURL:tweet.userImageURL];
-    
-    //NSData * imageData = [NSData dataWithContentsOfURL:tweet.userImageURL];
-    //[cell.tweetUserProfileImage setImage:[UIImage imageWithData:imageData]];
+    //cell.tweetContentLabel.text = tweet.text;
     
     return cell;
 }
