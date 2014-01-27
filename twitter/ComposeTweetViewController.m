@@ -27,8 +27,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        self.title = @"Compose Tweet";
     }
     return self;
 }
@@ -66,6 +64,9 @@
     self.composeTweetUsernameLabel.text = signedInUser.currentUsername;
     self.composeTweetUserHandle.text = handle;
     [self.composeTweetUserImage setImageWithURL:signedInUser.currentUserImageURL];
+    if (self.replyingToTweet) {
+        self.composeTweetTextView.text = [StringFormatter twitterHandleFormatter:self.replyingToTweet.userHandle];
+    }
 }
 
 - (void)onCancelCompose {
@@ -74,17 +75,26 @@
 
 - (void)onTweet {
     
-    NSLog(@"Tweet Button has been clicked");
+    if (self.replyingToTweet) {
+        [[TwitterClient instance] replyToTweet:self.composeTweetTextView.text inReplyTo:self.replyingToTweet.tweetId success:^(AFHTTPRequestOperation *operation, id response) {
+            NSLog(@"Replying to tweet - Response: %@", response);
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            // Do nothing
+            NSLog(@"Failure encountered during reply: %d - %@",error.code, error.description);
+        }];
+    } else {
 
     [[TwitterClient instance] updateStatus:self.composeTweetTextView.text success:^(AFHTTPRequestOperation *operation, id response) {
-        NSLog(@"%@", response);
-        //self.tweets = [Tweet tweetsWithArray:response];
+        NSLog(@"Tweeting! - Response: %@", response);
         
         [self dismissViewControllerAnimated:YES completion:nil];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // Do nothing
-        NSLog(@"Failure encountered: %d - %@",error.code, error.description);
+        NSLog(@"Failure encountered during tweet: %d - %@",error.code, error.description);
     }];
+    }
 }
 
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView {

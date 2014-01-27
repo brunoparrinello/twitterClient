@@ -19,4 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *composeTweetUserHandle;
 @property (weak, nonatomic) IBOutlet UILabel *charCounterLabel;
 
+@property (nonatomic, strong) Tweet *replyingToTweet;
+
 @end

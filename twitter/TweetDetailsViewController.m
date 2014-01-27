@@ -10,11 +10,13 @@
 #import "Tweet.h"
 #import "UIImageView+AFNetworking.h"
 #import "StringFormatter.h"
+#import "ComposeTweetViewController.h"
 
 @interface TweetDetailsViewController ()
 
 - (IBAction)onRetweet:(id)sender;
 - (IBAction)onFavorite:(id)sender;
+- (IBAction)onReply:(id)sender;
 
 @end
 
@@ -47,7 +49,6 @@
     self.selectedTweetTimestampLabel.text = self.selectedTweet.tweetTimestamp;
     self.selectedTweetTextView.text = self.selectedTweet.text;
     [self.selectedTweetUserImage setImageWithURL:self.selectedTweet.userImageURL];
-    //self.selectedTweetNumberOfRetweetsLabel.text = self.selectedTweet.numberOfRetweets;
     self.selectedTweetNumberOfRetweetsLabel.text = [StringFormatter formatRetweets:self.selectedTweet.numberOfRetweets WithFavorites:self.selectedTweet.numberOfFavorites];
 }
 
@@ -72,6 +73,13 @@
         NSLog(@"Favorite has failed: %d - %@", error.code, error.description);
     }];
 
+}
+
+- (IBAction)onReply:(id)sender {
+    ComposeTweetViewController *cvc = [[ComposeTweetViewController alloc] init];
+    cvc.replyingToTweet = self.selectedTweet;
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:cvc];
+    [self.navigationController presentViewController:nvc animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

@@ -71,6 +71,13 @@ static NSString * const kAccessTokenKey = @"kAccessTokenKey";
     [self postPath:@"1.1/statuses/update.json" parameters:params success:success failure:failure];
 }
 
+- (void)replyToTweet:(NSString *)status inReplyTo:(NSString *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"status": status}];
+    [params setObject:tweetId forKey:@"in_reply_to_status_id"];
+    
+    [self postPath:@"1.1/statuses/update.json" parameters:params success:success failure:failure];
+}
+
 - (void)retweet:(NSString *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"id": tweetId}];
     NSString *postPathPrefix = @"1.1/statuses/retweet/";
