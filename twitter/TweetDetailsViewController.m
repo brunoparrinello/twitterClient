@@ -36,10 +36,8 @@
     [super viewDidLoad];
     
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-        NSLog(@"Load resources for iOS 6.1 or earlier");
         self.navigationItem.backBarButtonItem.tintColor = [UIColor blackColor];
     } else {
-        NSLog(@"Load resources for iOS 7 or later");
         self.navigationItem.backBarButtonItem.tintColor = [UIColor whiteColor];
     }
     
@@ -49,7 +47,8 @@
     self.selectedTweetTimestampLabel.text = self.selectedTweet.tweetTimestamp;
     self.selectedTweetTextView.text = self.selectedTweet.text;
     [self.selectedTweetUserImage setImageWithURL:self.selectedTweet.userImageURL];
-    self.selectedTweetNumberOfRetweetsLabel.text = [StringFormatter formatRetweets:self.selectedTweet.numberOfRetweets WithFavorites:self.selectedTweet.numberOfFavorites];
+    self.selectedTweetNumberOfRetweetsLabel.text = self.selectedTweet.numberOfRetweets;
+    self.selectedTweetNumberOfFavesLabel.text = self.selectedTweet.numberOfFavorites;
 }
 
 - (IBAction)onRetweet:(id)sender {

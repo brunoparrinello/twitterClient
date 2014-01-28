@@ -17,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *selectedTweetTimestampLabel;
 @property (weak, nonatomic) IBOutlet UITextView *selectedTweetTextView;
 @property (weak, nonatomic) IBOutlet UILabel *selectedTweetNumberOfRetweetsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *retweetsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *selectedTweetNumberOfFavesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *favoritesLabel;
 @property (weak, nonatomic) IBOutlet UIButton *selectedTweetReplyButton;
 @property (weak, nonatomic) IBOutlet UIButton *selectedTweetRetweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *selectedTweetFavoriteButton;

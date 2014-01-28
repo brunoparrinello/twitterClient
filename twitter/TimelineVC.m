@@ -109,14 +109,32 @@
     cell.tweetTimestampLabel.text = tweet.tweetTimestamp;
     cell.tweetUserHandle.text = [StringFormatter twitterHandleFormatter:tweet.userHandle];
     [cell.tweetUserProfileImage setImageWithURL:tweet.userImageURL];
-    //cell.tweetContentLabel.text = tweet.text;
+    cell.tweetContentLabel.text = tweet.text;
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 90.0;
+    Tweet *tweet = self.tweets[indexPath.row];
+    
+    // Setting the max width based on the size of the screen
+    CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width - 50;
+    CGFloat maxHeight = 9999;
+    CGSize maximumLabelSize = CGSizeMake(maxWidth,maxHeight);
+    CGSize expectedTweetSize = [tweet.text sizeWithFont:[UIFont systemFontOfSize:12.0] constrainedToSize:maximumLabelSize lineBreakMode:NSLineBreakByWordWrapping];
+    
+    // 37 is the size of the label height (22) + size of padding top and bottom (8 each)
+    // 59 is the size of the image height (45) + size of padding top and bottom (7 each)
+    float minHeight = 59.0;
+    float labelHeightPlusPadding = 31.0;
+    float diffHeight = ((labelHeightPlusPadding + expectedTweetSize.height) - minHeight);
+    // Evaluating the height of the image + padding vs label + padding
+    // Calculating the height difference, to make sure the cell does not truncate the image, and account for the label height
+    diffHeight = ( diffHeight > 0) ? diffHeight : 0;
+    float cellHeight = minHeight + diffHeight;
+    
+    return cellHeight;
 }
 
 /*
